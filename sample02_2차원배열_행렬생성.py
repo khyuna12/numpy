@@ -1,0 +1,44 @@
+
+import numpy as np
+
+print(np.__version__)  # 1.24.3
+
+'''
+    2차원 배열 생성
+
+  1) np.array(중첩리스트) 이용
+     arr2D = np.array([[],[]])
+
+  2) 1차원 --> 2차원으로 변경
+      arr1D.shape = (행, 열)  ==> 행 * 열 = ndarray 크기(size)와 일치
+      arr1D.shape = (행, -1)  ==> 행크기에 의해서 열크기가 자동 지정됨 (중요)
+      arr1D.shape = (-1, 열)  ==> 열크기에 의해서 행크기가 자동 지정됨 (중요)
+ 
+'''
+
+# 1) np.array(중첩리스트) 이용
+arr1 = [[1,2,3],[4,5,6]]
+arr2D = np.array(arr1)
+print("1. 2차원 행렬 생성: \n", arr2D, type(arr2D))
+#  [[1 2 3]
+#  [4 5 6]] <class 'numpy.ndarray'>
+
+# 2) 1차원을 2차원으로 변경, shape 속성 사용
+arr1D = np.array([1,2,3,4,5,6])
+print(arr1D)  # [1 2 3 4 5 6]
+# arr1D.shape=(2, 3) 2행 3열
+arr1D.shape=(2, -1) # 행크기에 의해서 열크기가 자동 지정됨
+#arr1D.shape=(-1, 3)   # 열크기에 의해서 행크기가 자동 지정됨
+print("2. 1차원을 2차원으로 변경: \n", arr1D) # [[1 2 3][4 5 6]]
+
+# 다차원 shape 해석하기
+arr1D = np.array([1,2,3,4,5,6])
+# arr1D.shape=(2,3,1)  값이 1개인 3줄이 2개
+arr1D.shape=(3,1,2)
+#[[[1 2]]
+
+# [[3 4]]
+
+# [[5 6]]]
+print(arr1D)
+
